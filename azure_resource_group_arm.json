@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.4.1124.51302",
+      "templateHash": "16775380301108380157"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2019-11-01",
+      "name": "exastro_team_bicep_test",
+      "location": "japaneast",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "10.168.0.0/16"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "Subnet-1",
+            "properties": {
+              "addressPrefix": "10.168.0.0/24"
+            }
+          },
+          {
+            "name": "Subnet-2",
+            "properties": {
+              "addressPrefix": "10.168.1.0/24"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
