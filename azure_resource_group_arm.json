@@ -12,7 +12,7 @@
     {
       "type": "Microsoft.Network/virtualNetworks",
       "apiVersion": "2019-11-01",
-      "name": "exastro_team_bicep_test",
+      "name": "temporal_bicep_test",
       "location": "japaneast",
       "properties": {
         "addressSpace": {
