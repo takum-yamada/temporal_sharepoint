@@ -1,0 +1,54 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.4.1124.51302",
+      "templateHash": "10608140809168545736"
+    }
+  },
+  "parameters": {
+    "virtualNetworkAddressPrefix": {
+      "type": "array"
+    },
+    "subnetConfigurations": {
+      "type": "array",
+      "defaultValue": [
+        {
+          "name": "subnet-1a",
+          "addressPrefix": "10.168.0.0/24"
+        },
+        {
+          "name": "subnet-1b",
+          "addressPrefix": "10.168.1.0/24"
+        }
+      ]
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2019-11-01",
+      "name": "temporal_bicep_test",
+      "location": "japaneast",
+      "properties": {
+        "copy": [
+          {
+            "name": "subnets",
+            "count": "[length(parameters('subnetConfigurations'))]",
+            "input": {
+              "name": "[parameters('subnetConfigurations')[copyIndex('subnets')].name]",
+              "properties": {
+                "addressPrefix": "[parameters('subnetConfigurations')[copyIndex('subnets')].addressPrefix]"
+              }
+            }
+          }
+        ],
+        "addressSpace": {
+          "addressPrefixes": "[parameters('virtualNetworkAddressPrefix')]"
+        }
+      }
+    }
+  ]
+}
