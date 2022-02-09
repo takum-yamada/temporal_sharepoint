@@ -5,11 +5,11 @@
     "_generator": {
       "name": "bicep",
       "version": "0.4.1124.51302",
-      "templateHash": "10608140809168545736"
+      "templateHash": "3379823338590365732"
     }
   },
   "parameters": {
-    "virtualNetworkAddressPrefix": {
+    "virtualNetworkAddressPrefixes": {
       "type": "array"
     },
     "subnetConfigurations": {
@@ -46,7 +46,7 @@
           }
         ],
         "addressSpace": {
-          "addressPrefixes": "[parameters('virtualNetworkAddressPrefix')]"
+          "addressPrefixes": "[parameters('virtualNetworkAddressPrefixes')]"
         }
       }
     }
