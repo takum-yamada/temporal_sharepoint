@@ -5,10 +5,13 @@
     "_generator": {
       "name": "bicep",
       "version": "0.4.1124.51302",
-      "templateHash": "3379823338590365732"
+      "templateHash": "16532666463435081878"
     }
   },
   "parameters": {
+    "virtualNetworkName": {
+      "type": "string"
+    },
     "virtualNetworkAddressPrefixes": {
       "type": "array"
     },
@@ -30,7 +33,7 @@
     {
       "type": "Microsoft.Network/virtualNetworks",
       "apiVersion": "2019-11-01",
-      "name": "temporal_bicep_test",
+      "name": "[parameters('virtualNetworkName')]",
       "location": "japaneast",
       "properties": {
         "copy": [

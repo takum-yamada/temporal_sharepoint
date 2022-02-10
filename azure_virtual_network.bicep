@@ -1,3 +1,4 @@
+param virtualNetworkName string
 param virtualNetworkAddressPrefixes array
 param subnetConfigurations array = [
   {
@@ -11,7 +12,7 @@ param subnetConfigurations array = [
 ]
 
 resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
-  name: 'temporal_bicep_test'
+  name: virtualNetworkName
   location: 'japaneast'
   properties: {
     addressSpace: {
